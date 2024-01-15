@@ -1,7 +1,8 @@
 class HerosController < ApplicationController
+  http_basic_authenticate_with name: "user", password: "123", except: :index
   before_action :set_hero, only: %i[ show edit update destroy ]
 
-  # GET /heros or /heros.json
+  # GET /heros or /heros.json.
   def index
     @heros = Hero.all
   end
